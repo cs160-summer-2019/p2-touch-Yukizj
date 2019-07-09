@@ -84,7 +84,49 @@
 		</div>
 	</div>
 	<script>
-	  // your solution here
+   var myElementRotate = document.getElementById('rotate-box'); 
+   var rmc = new Hammer(myElementRotate);
+	  rmc.get('rotate').set({ enable: true });
+    rmc.on("rotate", function(ev) {
+    myElementRotate.textContent = ev.type +" gesture detected.";
+    $("#rotate-box").css("background-color","red"); 
+  });
+    
+    var myElementPinch = document.getElementById('pinch-box'); 
+    var pmc = new Hammer(myElementPinch);
+	  pmc.get('pinch').set({ enable: true });
+    pmc.on("pinch", function(ev) {
+    myElementPinch.textContent = ev.type +" gesture detected.";
+    $("#pinch-box").css("background-color","red"); 
+  });
+    
+    var myElementPress = document.getElementById('press-box');
+    var pmc = new Hammer(myElementPress);
+    pmc.on("press", function(ev) {
+    myElementPress.textContent = ev.type +" gesture detected.";
+    $("#press-box").css("background-color","red");
+  });
+
+    var myElementPan = document.getElementById('pan-box');
+    var pamc = new Hammer(myElementPan);
+    pamc.on("panleft panright", function(ev) {
+    myElementPan.textContent = ev.type +" gesture detected.";
+    $("#pan-box").css("background-color","red");
+  });
+    
+    var myElementTap = document.getElementById('tap-box');
+    var tmc = new Hammer(myElementTap);
+    tmc.on("tap", function(ev) {
+    myElementTap.textContent = ev.type +" gesture detected.";
+    $("#tap-box").css("background-color","red");
+  });
+    
+    var myElementSwipe = document.getElementById('swipe-box');
+    var smc = new Hammer(myElementSwipe);
+    smc.on("swipe", function(ev) {
+    myElementSwipe.textContent = ev.type +" gesture detected.";
+    $("#swipe-box").css("background-color","red");
+  });
   </script>
 </body>
 </html>
